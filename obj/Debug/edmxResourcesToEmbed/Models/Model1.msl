@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MetopeAzureDbModelStoreContainer" CdmEntityContainer="MetopeAzureDbEntities">
+    <EntitySetMapping Name="Portfolios">
+      <EntityTypeMapping TypeName="MetopeAzureDbModel.Portfolio">
+        <MappingFragment StoreEntitySet="Portfolio">
+          <ScalarProperty Name="Portfolio_Status" ColumnName="Portfolio_Status" />
+          <ScalarProperty Name="System_Locked" ColumnName="System_Locked" />
+          <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+          <ScalarProperty Name="Custodian_Code" ColumnName="Custodian_Code" />
+          <ScalarProperty Name="Financial_Year_End" ColumnName="Financial_Year_End" />
+          <ScalarProperty Name="Inception_Date" ColumnName="Inception_Date" />
+          <ScalarProperty Name="Portfolio_Report_Currency" ColumnName="Portfolio_Report_Currency" />
+          <ScalarProperty Name="PortfolIo_Domicile" ColumnName="PortfolIo_Domicile" />
+          <ScalarProperty Name="Portfolio_Base_Currency" ColumnName="Portfolio_Base_Currency" />
+          <ScalarProperty Name="Portfolio_Type" ColumnName="Portfolio_Type" />
+          <ScalarProperty Name="Manager" ColumnName="Manager" />
+          <ScalarProperty Name="Portfolio_Name" ColumnName="Portfolio_Name" />
+          <ScalarProperty Name="Portfolio_Code" ColumnName="Portfolio_Code" />
+          <ScalarProperty Name="Entity_ID" ColumnName="Entity_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Portfolio_List">
+      <EntityTypeMapping TypeName="MetopeAzureDbModel.Portfolio_List">
+        <MappingFragment StoreEntitySet="Portfolio_List">
+          <ScalarProperty Name="Portfolio_List_Code" ColumnName="Portfolio_List_Code" />
+          <ScalarProperty Name="Portfolio_Code" ColumnName="Portfolio_Code" />
+          <ScalarProperty Name="Entity_ID" ColumnName="Entity_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_Allocation">
+      <EntityTypeMapping TypeName="MetopeAzureDbModel.Order_Allocation">
+        <MappingFragment StoreEntitySet="Order_Allocation">
+          <ScalarProperty Name="Last_Update_User" ColumnName="Last_Update_User" />
+          <ScalarProperty Name="Last_Update_Date" ColumnName="Last_Update_Date" />
+          <ScalarProperty Name="Operations_Status" ColumnName="Operations_Status" />
+          <ScalarProperty Name="Allocation_Ack_Nack_Status" ColumnName="Allocation_Ack_Nack_Status" />
+          <ScalarProperty Name="Export_Status" ColumnName="Export_Status" />
+          <ScalarProperty Name="Export_Reference" ColumnName="Export_Reference" />
+          <ScalarProperty Name="Trade_Base_FX_Rate" ColumnName="Trade_Base_FX_Rate" />
+          <ScalarProperty Name="Tax_Amount_BaseCur" ColumnName="Tax_Amount_BaseCur" />
+          <ScalarProperty Name="Fee_Amount6_BaseCur" ColumnName="Fee_Amount6_BaseCur" />
+          <ScalarProperty Name="Fee_Amount5_BaseCur" ColumnName="Fee_Amount5_BaseCur" />
+          <ScalarProperty Name="Fee_Amount4_BaseCur" ColumnName="Fee_Amount4_BaseCur" />
+          <ScalarProperty Name="Fee_Amount3_BaseCur" ColumnName="Fee_Amount3_BaseCur" />
+          <ScalarProperty Name="Fee_Amount2_BaseCur" ColumnName="Fee_Amount2_BaseCur" />
+          <ScalarProperty Name="Fee_Amount1_BaseCur" ColumnName="Fee_Amount1_BaseCur" />
+          <ScalarProperty Name="Tax_Amount_TradeCur" ColumnName="Tax_Amount_TradeCur" />
+          <ScalarProperty Name="Fee_Amount6_TradeCur" ColumnName="Fee_Amount6_TradeCur" />
+          <ScalarProperty Name="Fee_Amount5_TradeCur" ColumnName="Fee_Amount5_TradeCur" />
+          <ScalarProperty Name="Fee_Amount4_TradeCur" ColumnName="Fee_Amount4_TradeCur" />
+          <ScalarProperty Name="Fee_Amount3_TradeCur" ColumnName="Fee_Amount3_TradeCur" />
+          <ScalarProperty Name="Fee_Amount2_TradeCur" ColumnName="Fee_Amount2_TradeCur" />
+          <ScalarProperty Name="Fee_Amount1_TradeCur" ColumnName="Fee_Amount1_TradeCur" />
+          <ScalarProperty Name="Sell_Currency_Execution_Amount_BaseCur" ColumnName="Sell_Currency_Execution_Amount_BaseCur" />
+          <ScalarProperty Name="Buy_Currency_Execution_Amount_BaseCur" ColumnName="Buy_Currency_Execution_Amount_BaseCur" />
+          <ScalarProperty Name="Sell_Currency_Execution_Amount_TradeCur" ColumnName="Sell_Currency_Execution_Amount_TradeCur" />
+          <ScalarProperty Name="Buy_Currency_Execution_Amount_TradeCur" ColumnName="Buy_Currency_Execution_Amount_TradeCur" />
+          <ScalarProperty Name="Sell_Currency_Target_Amount_BaseCur" ColumnName="Sell_Currency_Target_Amount_BaseCur" />
+          <ScalarProperty Name="Buy_Currency_Target_Amount_BaseCur" ColumnName="Buy_Currency_Target_Amount_BaseCur" />
+          <ScalarProperty Name="Sell_Currency_Target_Amount_TradeCur" ColumnName="Sell_Currency_Target_Amount_TradeCur" />
+          <ScalarProperty Name="Buy_Currency_Target_Amount_TradeCur" ColumnName="Buy_Currency_Target_Amount_TradeCur" />
+          <ScalarProperty Name="Execution_Net_Amount_BaseCur" ColumnName="Execution_Net_Amount_BaseCur" />
+          <ScalarProperty Name="Execution_Net_Amount_TradeCur" ColumnName="Execution_Net_Amount_TradeCur" />
+          <ScalarProperty Name="Execution_Gross_Amount_BaseCur" ColumnName="Execution_Gross_Amount_BaseCur" />
+          <ScalarProperty Name="Execution_Gross_Amount_TradeCur" ColumnName="Execution_Gross_Amount_TradeCur" />
+          <ScalarProperty Name="Commission_Amount_BaseCur" ColumnName="Commission_Amount_BaseCur" />
+          <ScalarProperty Name="Commission_Amount_TradeCur" ColumnName="Commission_Amount_TradeCur" />
+          <ScalarProperty Name="Commission_Type" ColumnName="Commission_Type" />
+          <ScalarProperty Name="Commission_Rate" ColumnName="Commission_Rate" />
+          <ScalarProperty Name="Execution_AllIn_Amount_BaseCur" ColumnName="Execution_AllIn_Amount_BaseCur" />
+          <ScalarProperty Name="Execution_Income_Amount_BaseCur" ColumnName="Execution_Income_Amount_BaseCur" />
+          <ScalarProperty Name="Execution_Clean_Amount_BaseCur" ColumnName="Execution_Clean_Amount_BaseCur" />
+          <ScalarProperty Name="Execution_AllIn_Amount_TradeCur" ColumnName="Execution_AllIn_Amount_TradeCur" />
+          <ScalarProperty Name="Execution_Income_Amount_TradeCur" ColumnName="Execution_Income_Amount_TradeCur" />
+          <ScalarProperty Name="Execution_Clean_Amount_TradeCur" ColumnName="Execution_Clean_Amount_TradeCur" />
+          <ScalarProperty Name="Place_Quantity" ColumnName="Place_Quantity" />
+          <ScalarProperty Name="Execution_Quantity" ColumnName="Execution_Quantity" />
+          <ScalarProperty Name="Target_AllIn_Amount_BaseCur" ColumnName="Target_AllIn_Amount_BaseCur" />
+          <ScalarProperty Name="Target_Income_Amount_BaseCur" ColumnName="Target_Income_Amount_BaseCur" />
+          <ScalarProperty Name="Target_Clean_Amount_BaseCur" ColumnName="Target_Clean_Amount_BaseCur" />
+          <ScalarProperty Name="Target_AllIn_Amount_TradeCur" ColumnName="Target_AllIn_Amount_TradeCur" />
+          <ScalarProperty Name="Target_Income_Amount_TradeCur" ColumnName="Target_Income_Amount_TradeCur" />
+          <ScalarProperty Name="Target_Clean_Amount_TradeCur" ColumnName="Target_Clean_Amount_TradeCur" />
+          <ScalarProperty Name="Target_Quantity" ColumnName="Target_Quantity" />
+          <ScalarProperty Name="Portfolio_Code" ColumnName="Portfolio_Code" />
+          <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+          <ScalarProperty Name="Entity_ID" ColumnName="Entity_ID" />
+          <ScalarProperty Name="Allocation_ID" ColumnName="Allocation_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_Detail">
+      <EntityTypeMapping TypeName="MetopeAzureDbModel.Order_Detail">
+        <MappingFragment StoreEntitySet="Order_Detail">
+          <ScalarProperty Name="Import_Trade_ID" ColumnName="Import_Trade_ID" />
+          <ScalarProperty Name="Operations_Status" ColumnName="Operations_Status" />
+          <ScalarProperty Name="Order_Ack_Nack_Status" ColumnName="Order_Ack_Nack_Status" />
+          <ScalarProperty Name="Export_Status" ColumnName="Export_Status" />
+          <ScalarProperty Name="Security_Type_Code" ColumnName="Security_Type_Code" />
+          <ScalarProperty Name="Authorised_Number" ColumnName="Authorised_Number" />
+          <ScalarProperty Name="Authorised_User2_DateTime" ColumnName="Authorised_User2_DateTime" />
+          <ScalarProperty Name="Authorised_User2" ColumnName="Authorised_User2" />
+          <ScalarProperty Name="Authorised_User1_DateTime" ColumnName="Authorised_User1_DateTime" />
+          <ScalarProperty Name="Authorised_User1" ColumnName="Authorised_User1" />
+          <ScalarProperty Name="Previous_Order_ID" ColumnName="Previous_Order_ID" />
+          <ScalarProperty Name="Related_Order_ID" ColumnName="Related_Order_ID" />
+          <ScalarProperty Name="Execution_Net_Amount_TradeCur" ColumnName="Execution_Net_Amount_TradeCur" />
+          <ScalarProperty Name="Execution_Gross_Amount_TradeCur" ColumnName="Execution_Gross_Amount_TradeCur" />
+          <ScalarProperty Name="Tax_Charge_FeeNum" ColumnName="Tax_Charge_FeeNum" />
+          <ScalarProperty Name="Tax_Type" ColumnName="Tax_Type" />
+          <ScalarProperty Name="Tax_Amount_TradeCur" ColumnName="Tax_Amount_TradeCur" />
+          <ScalarProperty Name="Fee_Amount6_TradeCur" ColumnName="Fee_Amount6_TradeCur" />
+          <ScalarProperty Name="Fee_Amount5_TradeCur" ColumnName="Fee_Amount5_TradeCur" />
+          <ScalarProperty Name="Fee_Amount4_TradeCur" ColumnName="Fee_Amount4_TradeCur" />
+          <ScalarProperty Name="Fee_Amount3_TradeCur" ColumnName="Fee_Amount3_TradeCur" />
+          <ScalarProperty Name="Fee_Amount2_TradeCur" ColumnName="Fee_Amount2_TradeCur" />
+          <ScalarProperty Name="Fee_Amount1_TradeCur" ColumnName="Fee_Amount1_TradeCur" />
+          <ScalarProperty Name="Fee_Code6" ColumnName="Fee_Code6" />
+          <ScalarProperty Name="Fee_Code5" ColumnName="Fee_Code5" />
+          <ScalarProperty Name="Fee_Code4" ColumnName="Fee_Code4" />
+          <ScalarProperty Name="Fee_Code3" ColumnName="Fee_Code3" />
+          <ScalarProperty Name="Fee_Code2" ColumnName="Fee_Code2" />
+          <ScalarProperty Name="Fee_Code1" ColumnName="Fee_Code1" />
+          <ScalarProperty Name="Commission_Type" ColumnName="Commission_Type" />
+          <ScalarProperty Name="Commission_Rate" ColumnName="Commission_Rate" />
+          <ScalarProperty Name="Trade_Type_Indicator" ColumnName="Trade_Type_Indicator" />
+          <ScalarProperty Name="Commission_Amount_TradeCur" ColumnName="Commission_Amount_TradeCur" />
+          <ScalarProperty Name="Sell_Currency_Target_Amount" ColumnName="Sell_Currency_Target_Amount" />
+          <ScalarProperty Name="Sell_Currency_Execution_Amount" ColumnName="Sell_Currency_Execution_Amount" />
+          <ScalarProperty Name="Sell_Currency_Code" ColumnName="Sell_Currency_Code" />
+          <ScalarProperty Name="Buy_Currency_Target_Amount" ColumnName="Buy_Currency_Target_Amount" />
+          <ScalarProperty Name="Buy_Currency_Execution_Amount" ColumnName="Buy_Currency_Execution_Amount" />
+          <ScalarProperty Name="Buy_Currency_Code" ColumnName="Buy_Currency_Code" />
+          <ScalarProperty Name="Execution_FX_Rate" ColumnName="Execution_FX_Rate" />
+          <ScalarProperty Name="Limit_FX_Rate" ColumnName="Limit_FX_Rate" />
+          <ScalarProperty Name="Target_FX_Rate" ColumnName="Target_FX_Rate" />
+          <ScalarProperty Name="Execution_Exchange" ColumnName="Execution_Exchange" />
+          <ScalarProperty Name="Execution_Currency" ColumnName="Execution_Currency" />
+          <ScalarProperty Name="Execution_Discount" ColumnName="Execution_Discount" />
+          <ScalarProperty Name="Execution_Yield" ColumnName="Execution_Yield" />
+          <ScalarProperty Name="Execution_AllIn_Price" ColumnName="Execution_AllIn_Price" />
+          <ScalarProperty Name="Execution_Income_Price" ColumnName="Execution_Income_Price" />
+          <ScalarProperty Name="Execution_Clean_Price" ColumnName="Execution_Clean_Price" />
+          <ScalarProperty Name="Broker_Code" ColumnName="Broker_Code" />
+          <ScalarProperty Name="Execution_AllIn_Amount_TradeCur" ColumnName="Execution_AllIn_Amount_TradeCur" />
+          <ScalarProperty Name="Execution_Income_Amount_TradeCur" ColumnName="Execution_Income_Amount_TradeCur" />
+          <ScalarProperty Name="Execution_Clean_Amount_TradeCur" ColumnName="Execution_Clean_Amount_TradeCur" />
+          <ScalarProperty Name="Execution_Quantity" ColumnName="Execution_Quantity" />
+          <ScalarProperty Name="Place_Quantity" ColumnName="Place_Quantity" />
+          <ScalarProperty Name="Target_AllIn_Amount_TradeCur" ColumnName="Target_AllIn_Amount_TradeCur" />
+          <ScalarProperty Name="Target_Income_Amount_TradeCur" ColumnName="Target_Income_Amount_TradeCur" />
+          <ScalarProperty Name="Target_Clean_Amount_TradeCur" ColumnName="Target_Clean_Amount_TradeCur" />
+          <ScalarProperty Name="Target_Quantity" ColumnName="Target_Quantity" />
+          <ScalarProperty Name="Target_Discount" ColumnName="Target_Discount" />
+          <ScalarProperty Name="Target_Yield" ColumnName="Target_Yield" />
+          <ScalarProperty Name="Target_AllIn_Price" ColumnName="Target_AllIn_Price" />
+          <ScalarProperty Name="Target_Income_Price" ColumnName="Target_Income_Price" />
+          <ScalarProperty Name="Target_Clean_Price" ColumnName="Target_Clean_Price" />
+          <ScalarProperty Name="Value_Based_Indicator" ColumnName="Value_Based_Indicator" />
+          <ScalarProperty Name="Sent_To_Accounting_Date" ColumnName="Sent_To_Accounting_Date" />
+          <ScalarProperty Name="Sent_To_Trading_Date" ColumnName="Sent_To_Trading_Date" />
+          <ScalarProperty Name="Last_Update_User" ColumnName="Last_Update_User" />
+          <ScalarProperty Name="Last_Update_Date" ColumnName="Last_Update_Date" />
+          <ScalarProperty Name="Order_Create_Date" ColumnName="Order_Create_Date" />
+          <ScalarProperty Name="Order_Creator" ColumnName="Order_Creator" />
+          <ScalarProperty Name="Limit_Discount" ColumnName="Limit_Discount" />
+          <ScalarProperty Name="Limit_Yield" ColumnName="Limit_Yield" />
+          <ScalarProperty Name="Limit_Price" ColumnName="Limit_Price" />
+          <ScalarProperty Name="Order_Duration" ColumnName="Order_Duration" />
+          <ScalarProperty Name="Order_Instruction" ColumnName="Order_Instruction" />
+          <ScalarProperty Name="Operations_User" ColumnName="Operations_User" />
+          <ScalarProperty Name="Trader" ColumnName="Trader" />
+          <ScalarProperty Name="Manager" ColumnName="Manager" />
+          <ScalarProperty Name="Cancel_Reason_Code" ColumnName="Cancel_Reason_Code" />
+          <ScalarProperty Name="Order_Status" ColumnName="Order_Status" />
+          <ScalarProperty Name="Transaction_Type" ColumnName="Transaction_Type" />
+          <ScalarProperty Name="Settlement_Date" ColumnName="Settlement_Date" />
+          <ScalarProperty Name="Trade_Date" ColumnName="Trade_Date" />
+          <ScalarProperty Name="Security_ID" ColumnName="Security_ID" />
+          <ScalarProperty Name="Entity_ID" ColumnName="Entity_ID" />
+          <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

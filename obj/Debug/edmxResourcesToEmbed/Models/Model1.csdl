@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MetopeAzureDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MetopeAzureDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Portfolios" EntityType="MetopeAzureDbModel.Portfolio" />
+    <EntitySet Name="Portfolio_List" EntityType="MetopeAzureDbModel.Portfolio_List" />
+    <AssociationSet Name="FK_Portfolio_List_Portfolio" Association="MetopeAzureDbModel.FK_Portfolio_List_Portfolio">
+      <End Role="Portfolio" EntitySet="Portfolios" />
+      <End Role="Portfolio_List" EntitySet="Portfolio_List" />
+    </AssociationSet>
+    <EntitySet Name="Order_Allocation" EntityType="MetopeAzureDbModel.Order_Allocation" />
+    <EntitySet Name="Order_Detail" EntityType="MetopeAzureDbModel.Order_Detail" />
+    <AssociationSet Name="FK_Order_Allocation_Order_Detail" Association="MetopeAzureDbModel.FK_Order_Allocation_Order_Detail">
+      <End Role="Order_Detail" EntitySet="Order_Detail" />
+      <End Role="Order_Allocation" EntitySet="Order_Allocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Allocation_Portfolio" Association="MetopeAzureDbModel.FK_Order_Allocation_Portfolio">
+      <End Role="Portfolio" EntitySet="Portfolios" />
+      <End Role="Order_Allocation" EntitySet="Order_Allocation" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Portfolio">
+    <Key>
+      <PropertyRef Name="Entity_ID" />
+      <PropertyRef Name="Portfolio_Code" />
+    </Key>
+    <Property Name="Entity_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Portfolio_Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Portfolio_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Manager" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Portfolio_Type" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Portfolio_Base_Currency" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="PortfolIo_Domicile" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Portfolio_Report_Currency" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Inception_Date" Type="DateTime" Precision="0" />
+    <Property Name="Financial_Year_End" Type="DateTime" Precision="0" />
+    <Property Name="Custodian_Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+    <Property Name="System_Locked" Type="Boolean" />
+    <Property Name="Portfolio_Status" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Portfolio_List" Relationship="MetopeAzureDbModel.FK_Portfolio_List_Portfolio" FromRole="Portfolio" ToRole="Portfolio_List" />
+    <NavigationProperty Name="Order_Allocation" Relationship="MetopeAzureDbModel.FK_Order_Allocation_Portfolio" FromRole="Portfolio" ToRole="Order_Allocation" />
+  </EntityType>
+  <EntityType Name="Portfolio_List">
+    <Key>
+      <PropertyRef Name="Entity_ID" />
+      <PropertyRef Name="Portfolio_Code" />
+      <PropertyRef Name="Portfolio_List_Code" />
+    </Key>
+    <Property Name="Entity_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Portfolio_Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Portfolio_List_Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Portfolio" Relationship="MetopeAzureDbModel.FK_Portfolio_List_Portfolio" FromRole="Portfolio_List" ToRole="Portfolio" />
+  </EntityType>
+  <Association Name="FK_Portfolio_List_Portfolio">
+    <End Type="MetopeAzureDbModel.Portfolio" Role="Portfolio" Multiplicity="1" />
+    <End Type="MetopeAzureDbModel.Portfolio_List" Role="Portfolio_List" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Portfolio">
+        <PropertyRef Name="Entity_ID" />
+        <PropertyRef Name="Portfolio_Code" />
+      </Principal>
+      <Dependent Role="Portfolio_List">
+        <PropertyRef Name="Entity_ID" />
+        <PropertyRef Name="Portfolio_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Order_Allocation">
+    <Key>
+      <PropertyRef Name="Allocation_ID" />
+    </Key>
+    <Property Name="Allocation_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Entity_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Order_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Portfolio_Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Target_Quantity" Type="Decimal" Nullable="false" Precision="20" Scale="4" />
+    <Property Name="Target_Clean_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Target_Income_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Target_AllIn_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Target_Clean_Amount_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Target_Income_Amount_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Target_AllIn_Amount_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Quantity" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Place_Quantity" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Clean_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Income_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_AllIn_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Clean_Amount_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Income_Amount_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_AllIn_Amount_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Commission_Rate" Type="Decimal" Precision="20" Scale="9" />
+    <Property Name="Commission_Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Commission_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Commission_Amount_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Gross_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Gross_Amount_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Net_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Net_Amount_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Buy_Currency_Target_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Sell_Currency_Target_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Buy_Currency_Target_Amount_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Sell_Currency_Target_Amount_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Buy_Currency_Execution_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Sell_Currency_Execution_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Buy_Currency_Execution_Amount_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Sell_Currency_Execution_Amount_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount1_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount2_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount3_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount4_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount5_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount6_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Tax_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount1_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount2_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount3_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount4_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount5_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount6_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Tax_Amount_BaseCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Trade_Base_FX_Rate" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Export_Reference" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Export_Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Allocation_Ack_Nack_Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Operations_Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Update_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Update_User" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Order_Detail" Relationship="MetopeAzureDbModel.FK_Order_Allocation_Order_Detail" FromRole="Order_Allocation" ToRole="Order_Detail" />
+    <NavigationProperty Name="Portfolio" Relationship="MetopeAzureDbModel.FK_Order_Allocation_Portfolio" FromRole="Order_Allocation" ToRole="Portfolio" />
+  </EntityType>
+  <EntityType Name="Order_Detail">
+    <Key>
+      <PropertyRef Name="Order_ID" />
+    </Key>
+    <Property Name="Order_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Entity_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Security_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Trade_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Settlement_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Transaction_Type" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Order_Status" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Cancel_Reason_Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Manager" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Trader" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Operations_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Order_Instruction" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Order_Duration" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Limit_Price" Type="Decimal" Precision="20" Scale="9" />
+    <Property Name="Limit_Yield" Type="Decimal" Precision="20" Scale="9" />
+    <Property Name="Limit_Discount" Type="Decimal" Precision="20" Scale="9" />
+    <Property Name="Order_Creator" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Order_Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Last_Update_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Update_User" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Sent_To_Trading_Date" Type="DateTime" Precision="3" />
+    <Property Name="Sent_To_Accounting_Date" Type="DateTime" Precision="3" />
+    <Property Name="Value_Based_Indicator" Type="Boolean" Nullable="false" />
+    <Property Name="Target_Clean_Price" Type="Decimal" Precision="20" Scale="9" />
+    <Property Name="Target_Income_Price" Type="Decimal" Precision="20" Scale="9" />
+    <Property Name="Target_AllIn_Price" Type="Decimal" Precision="20" Scale="9" />
+    <Property Name="Target_Yield" Type="Decimal" Precision="20" Scale="9" />
+    <Property Name="Target_Discount" Type="Decimal" Precision="20" Scale="9" />
+    <Property Name="Target_Quantity" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Target_Clean_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Target_Income_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Target_AllIn_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Place_Quantity" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Quantity" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Clean_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Income_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_AllIn_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Broker_Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Execution_Clean_Price" Type="Decimal" Precision="20" Scale="9" />
+    <Property Name="Execution_Income_Price" Type="Decimal" Precision="20" Scale="9" />
+    <Property Name="Execution_AllIn_Price" Type="Decimal" Precision="20" Scale="9" />
+    <Property Name="Execution_Yield" Type="Decimal" Precision="20" Scale="9" />
+    <Property Name="Execution_Discount" Type="Decimal" Precision="20" Scale="9" />
+    <Property Name="Execution_Currency" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Execution_Exchange" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="Target_FX_Rate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Limit_FX_Rate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Execution_FX_Rate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Buy_Currency_Code" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Buy_Currency_Execution_Amount" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Buy_Currency_Target_Amount" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Sell_Currency_Code" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Sell_Currency_Execution_Amount" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Sell_Currency_Target_Amount" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Commission_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Trade_Type_Indicator" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Commission_Rate" Type="Decimal" Precision="20" Scale="9" />
+    <Property Name="Commission_Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Fee_Code1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Fee_Code2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Fee_Code3" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Fee_Code4" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Fee_Code5" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Fee_Code6" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Fee_Amount1_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount2_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount3_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount4_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount5_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount6_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Tax_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Tax_Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Tax_Charge_FeeNum" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="Execution_Gross_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Net_Amount_TradeCur" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="Related_Order_ID" Type="Decimal" Precision="19" Scale="0" />
+    <Property Name="Previous_Order_ID" Type="Decimal" Precision="19" Scale="0" />
+    <Property Name="Authorised_User1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Authorised_User1_DateTime" Type="DateTime" Precision="3" />
+    <Property Name="Authorised_User2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Authorised_User2_DateTime" Type="DateTime" Precision="3" />
+    <Property Name="Authorised_Number" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Security_Type_Code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Export_Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Order_Ack_Nack_Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Operations_Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Import_Trade_ID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+    <NavigationProperty Name="Order_Allocation" Relationship="MetopeAzureDbModel.FK_Order_Allocation_Order_Detail" FromRole="Order_Detail" ToRole="Order_Allocation" />
+  </EntityType>
+  <Association Name="FK_Order_Allocation_Order_Detail">
+    <End Type="MetopeAzureDbModel.Order_Detail" Role="Order_Detail" Multiplicity="1" />
+    <End Type="MetopeAzureDbModel.Order_Allocation" Role="Order_Allocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order_Detail">
+        <PropertyRef Name="Order_ID" />
+      </Principal>
+      <Dependent Role="Order_Allocation">
+        <PropertyRef Name="Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Allocation_Portfolio">
+    <End Type="MetopeAzureDbModel.Portfolio" Role="Portfolio" Multiplicity="1" />
+    <End Type="MetopeAzureDbModel.Order_Allocation" Role="Order_Allocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Portfolio">
+        <PropertyRef Name="Entity_ID" />
+        <PropertyRef Name="Portfolio_Code" />
+      </Principal>
+      <Dependent Role="Order_Allocation">
+        <PropertyRef Name="Entity_ID" />
+        <PropertyRef Name="Portfolio_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2bae40804e2144ad84961b6850c9efa8" Name="Diagram1" ZoomLevel="55" ShowGrid="false">
+        <EntityTypeShape EntityType="MetopeAzureDbModel.Portfolio" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="MetopeAzureDbModel.Portfolio_List" Width="1.5" PointX="3" PointY="2.125" />
+        <AssociationConnector Association="MetopeAzureDbModel.FK_Portfolio_List_Portfolio" />
+        <EntityTypeShape EntityType="MetopeAzureDbModel.Order_Allocation" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="MetopeAzureDbModel.Order_Detail" Width="1.5" PointX="3.75" PointY="25.5" />
+        <AssociationConnector Association="MetopeAzureDbModel.FK_Order_Allocation_Order_Detail" />
+        <AssociationConnector Association="MetopeAzureDbModel.FK_Order_Allocation_Portfolio" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

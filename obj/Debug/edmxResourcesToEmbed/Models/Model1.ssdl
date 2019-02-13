@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MetopeAzureDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Order_Allocation">
+    <Key>
+      <PropertyRef Name="Allocation_ID" />
+    </Key>
+    <Property Name="Allocation_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Entity_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Order_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Portfolio_Code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Target_Quantity" Type="decimal" Precision="20" Scale="4" Nullable="false" />
+    <Property Name="Target_Clean_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Target_Income_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Target_AllIn_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Target_Clean_Amount_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Target_Income_Amount_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Target_AllIn_Amount_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Quantity" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Place_Quantity" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Clean_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Income_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_AllIn_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Clean_Amount_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Income_Amount_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_AllIn_Amount_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Commission_Rate" Type="decimal" Precision="20" Scale="9" />
+    <Property Name="Commission_Type" Type="varchar" MaxLength="20" />
+    <Property Name="Commission_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Commission_Amount_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Gross_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Gross_Amount_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Net_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Net_Amount_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Buy_Currency_Target_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Sell_Currency_Target_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Buy_Currency_Target_Amount_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Sell_Currency_Target_Amount_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Buy_Currency_Execution_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Sell_Currency_Execution_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Buy_Currency_Execution_Amount_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Sell_Currency_Execution_Amount_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount1_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount2_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount3_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount4_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount5_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount6_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Tax_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount1_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount2_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount3_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount4_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount5_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount6_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Tax_Amount_BaseCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Trade_Base_FX_Rate" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Export_Reference" Type="varchar" MaxLength="30" />
+    <Property Name="Export_Status" Type="varchar" MaxLength="30" />
+    <Property Name="Allocation_Ack_Nack_Status" Type="varchar" MaxLength="30" />
+    <Property Name="Operations_Status" Type="varchar" MaxLength="30" />
+    <Property Name="Last_Update_Date" Type="datetime" />
+    <Property Name="Last_Update_User" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order_Detail">
+    <Key>
+      <PropertyRef Name="Order_ID" />
+    </Key>
+    <Property Name="Order_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Entity_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Security_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Trade_Date" Type="datetime" Nullable="false" />
+    <Property Name="Settlement_Date" Type="datetime" Nullable="false" />
+    <Property Name="Transaction_Type" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Order_Status" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Cancel_Reason_Code" Type="varchar" MaxLength="20" />
+    <Property Name="Manager" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Trader" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Operations_User" Type="varchar" MaxLength="20" />
+    <Property Name="Order_Instruction" Type="varchar" MaxLength="20" />
+    <Property Name="Order_Duration" Type="varchar" MaxLength="20" />
+    <Property Name="Limit_Price" Type="decimal" Precision="20" Scale="9" />
+    <Property Name="Limit_Yield" Type="decimal" Precision="20" Scale="9" />
+    <Property Name="Limit_Discount" Type="decimal" Precision="20" Scale="9" />
+    <Property Name="Order_Creator" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Order_Create_Date" Type="datetime" Nullable="false" />
+    <Property Name="Last_Update_Date" Type="datetime" />
+    <Property Name="Last_Update_User" Type="varchar" MaxLength="30" />
+    <Property Name="Sent_To_Trading_Date" Type="datetime" />
+    <Property Name="Sent_To_Accounting_Date" Type="datetime" />
+    <Property Name="Value_Based_Indicator" Type="bit" Nullable="false" />
+    <Property Name="Target_Clean_Price" Type="decimal" Precision="20" Scale="9" />
+    <Property Name="Target_Income_Price" Type="decimal" Precision="20" Scale="9" />
+    <Property Name="Target_AllIn_Price" Type="decimal" Precision="20" Scale="9" />
+    <Property Name="Target_Yield" Type="decimal" Precision="20" Scale="9" />
+    <Property Name="Target_Discount" Type="decimal" Precision="20" Scale="9" />
+    <Property Name="Target_Quantity" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Target_Clean_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Target_Income_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Target_AllIn_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Place_Quantity" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Quantity" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Clean_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Income_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_AllIn_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Broker_Code" Type="varchar" MaxLength="20" />
+    <Property Name="Execution_Clean_Price" Type="decimal" Precision="20" Scale="9" />
+    <Property Name="Execution_Income_Price" Type="decimal" Precision="20" Scale="9" />
+    <Property Name="Execution_AllIn_Price" Type="decimal" Precision="20" Scale="9" />
+    <Property Name="Execution_Yield" Type="decimal" Precision="20" Scale="9" />
+    <Property Name="Execution_Discount" Type="decimal" Precision="20" Scale="9" />
+    <Property Name="Execution_Currency" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Execution_Exchange" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="Target_FX_Rate" Type="varchar" MaxLength="20" />
+    <Property Name="Limit_FX_Rate" Type="varchar" MaxLength="20" />
+    <Property Name="Execution_FX_Rate" Type="varchar" MaxLength="20" />
+    <Property Name="Buy_Currency_Code" Type="varchar" MaxLength="3" />
+    <Property Name="Buy_Currency_Execution_Amount" Type="varchar" MaxLength="20" />
+    <Property Name="Buy_Currency_Target_Amount" Type="varchar" MaxLength="20" />
+    <Property Name="Sell_Currency_Code" Type="varchar" MaxLength="3" />
+    <Property Name="Sell_Currency_Execution_Amount" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Sell_Currency_Target_Amount" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Commission_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Trade_Type_Indicator" Type="char" MaxLength="1" />
+    <Property Name="Commission_Rate" Type="decimal" Precision="20" Scale="9" />
+    <Property Name="Commission_Type" Type="varchar" MaxLength="20" />
+    <Property Name="Fee_Code1" Type="varchar" MaxLength="20" />
+    <Property Name="Fee_Code2" Type="varchar" MaxLength="20" />
+    <Property Name="Fee_Code3" Type="varchar" MaxLength="20" />
+    <Property Name="Fee_Code4" Type="varchar" MaxLength="20" />
+    <Property Name="Fee_Code5" Type="varchar" MaxLength="20" />
+    <Property Name="Fee_Code6" Type="varchar" MaxLength="20" />
+    <Property Name="Fee_Amount1_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount2_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount3_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount4_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount5_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Fee_Amount6_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Tax_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Tax_Type" Type="char" MaxLength="1" />
+    <Property Name="Tax_Charge_FeeNum" Type="varchar" MaxLength="6" />
+    <Property Name="Execution_Gross_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Execution_Net_Amount_TradeCur" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="Related_Order_ID" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="Previous_Order_ID" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="Authorised_User1" Type="varchar" MaxLength="30" />
+    <Property Name="Authorised_User1_DateTime" Type="datetime" />
+    <Property Name="Authorised_User2" Type="varchar" MaxLength="30" />
+    <Property Name="Authorised_User2_DateTime" Type="datetime" />
+    <Property Name="Authorised_Number" Type="char" MaxLength="1" />
+    <Property Name="Security_Type_Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Export_Status" Type="varchar" MaxLength="30" />
+    <Property Name="Order_Ack_Nack_Status" Type="varchar" MaxLength="30" />
+    <Property Name="Operations_Status" Type="varchar" MaxLength="30" />
+    <Property Name="Import_Trade_ID" Type="numeric" Precision="20" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Portfolio">
+    <Key>
+      <PropertyRef Name="Entity_ID" />
+      <PropertyRef Name="Portfolio_Code" />
+    </Key>
+    <Property Name="Entity_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Portfolio_Code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Portfolio_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Manager" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Portfolio_Type" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Portfolio_Base_Currency" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="PortfolIo_Domicile" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Portfolio_Report_Currency" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Inception_Date" Type="date" />
+    <Property Name="Financial_Year_End" Type="date" />
+    <Property Name="Custodian_Code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Active_Flag" Type="bit" Nullable="false" />
+    <Property Name="System_Locked" Type="bit" />
+    <Property Name="Portfolio_Status" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Portfolio_List">
+    <Key>
+      <PropertyRef Name="Entity_ID" />
+      <PropertyRef Name="Portfolio_Code" />
+      <PropertyRef Name="Portfolio_List_Code" />
+    </Key>
+    <Property Name="Entity_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Portfolio_Code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Portfolio_List_Code" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Order_Allocation_Order_Detail">
+    <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="1" />
+    <End Role="Order_Allocation" Type="Self.Order_Allocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order_Detail">
+        <PropertyRef Name="Order_ID" />
+      </Principal>
+      <Dependent Role="Order_Allocation">
+        <PropertyRef Name="Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Allocation_Portfolio">
+    <End Role="Portfolio" Type="Self.Portfolio" Multiplicity="1" />
+    <End Role="Order_Allocation" Type="Self.Order_Allocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Portfolio">
+        <PropertyRef Name="Entity_ID" />
+        <PropertyRef Name="Portfolio_Code" />
+      </Principal>
+      <Dependent Role="Order_Allocation">
+        <PropertyRef Name="Entity_ID" />
+        <PropertyRef Name="Portfolio_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Portfolio_List_Portfolio">
+    <End Role="Portfolio" Type="Self.Portfolio" Multiplicity="1" />
+    <End Role="Portfolio_List" Type="Self.Portfolio_List" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Portfolio">
+        <PropertyRef Name="Entity_ID" />
+        <PropertyRef Name="Portfolio_Code" />
+      </Principal>
+      <Dependent Role="Portfolio_List">
+        <PropertyRef Name="Entity_ID" />
+        <PropertyRef Name="Portfolio_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MetopeAzureDbModelStoreContainer">
+    <EntitySet Name="Order_Allocation" EntityType="Self.Order_Allocation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order_Detail" EntityType="Self.Order_Detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Portfolio" EntityType="Self.Portfolio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Portfolio_List" EntityType="Self.Portfolio_List" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Order_Allocation_Order_Detail" Association="Self.FK_Order_Allocation_Order_Detail">
+      <End Role="Order_Detail" EntitySet="Order_Detail" />
+      <End Role="Order_Allocation" EntitySet="Order_Allocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Allocation_Portfolio" Association="Self.FK_Order_Allocation_Portfolio">
+      <End Role="Portfolio" EntitySet="Portfolio" />
+      <End Role="Order_Allocation" EntitySet="Order_Allocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Portfolio_List_Portfolio" Association="Self.FK_Portfolio_List_Portfolio">
+      <End Role="Portfolio" EntitySet="Portfolio" />
+      <End Role="Portfolio_List" EntitySet="Portfolio_List" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
