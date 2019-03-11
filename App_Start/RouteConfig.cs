@@ -13,6 +13,11 @@ namespace MetopeOrdersTest
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //routes.MapRoute(
+            //name: "Application1Override",
+            //url: "IndexAngularHome/{*.}",
+            //defaults: new { controller = "IndexAngularHome", action = "" }
+            //);
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

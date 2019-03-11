@@ -33,13 +33,15 @@ namespace MetopeOrdersTest.Controllers
         // GET: Customer
         public ActionResult Index()
         {
-            return View(_repo.Get().ToList());
+           return View(_repo.Get().ToList());
+       
         }
 
         // GET: Customer
-        public ActionResult Index2()
+        public ActionResult IndexAngularHome()
         {
             return View(_repo.Get().ToList());
+       
         }
 
         public ActionResult IndexKeepbup()

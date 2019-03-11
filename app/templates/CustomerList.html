@@ -1,20 +1,26 @@
-﻿<div>
-bbbb
-        <a class="navbar-brand" href="..\Home.html">{{Message}}</a>
+﻿<div> 
+    <a class="navbar-brand" href="..\Customer\IndexAngularHome">{{Message}}</a> 
+ 
+    
+    <div>
+        <input type="submit" value="Add New" class="btn btn-primary" ng-click="createEmployeeForm()" />
+    </div>
         <table class="table">
             <thead>
                 <tr>
-                    <th>1stName</th>
+                    <th class="pdsa-action-button-column"> 
+                    </th>
+                    <th>first Name.</th>
                     <th>Last Name</th>
                     <th class="pdsa-action-button-column">
-                        Delete
+                        Deletee
                     </th>
                 </tr>
             </thead>
 
             <tr ng-repeat="cust in Customers">
                 <td class=" pdsa-action-button-column">
-                    <a data-ng-href="/Customer/Edit/{{cust.CustomerId}}"
+                    <a data-ng-href="#/CustEdit/{{cust.CustomerId}}"
                        ng-click="vm.editClick(cust.CustomerId)"
                        class="btn btn-default btn-sm">
                         <i class="glyphicon glyphicon-edit"></i>
@@ -23,8 +29,8 @@ bbbb
                 <td>{{cust.FirstName}}  </td>
                 <td>{{cust.LastName}}  </td>
                 <td class="pdsa-action-button-column">
-                    <a href="#"
-                       ng-click="vm.deleteClick(product.ProductId)"
+                    <a data-ng-href="#/CustDelete/{{cust.CustomerId}}"
+                       ng-click="vm.CustDelete(dataModel)"
                        class="btn btn-default btn-sm">
                         <i class="glyphicon glyphicon-trash"></i>
                     </a>
@@ -35,3 +41,4 @@ bbbb
 
         </table>
     </div>
+<div class="alert alert-danger" ng-if="hasFormError">{{formErrors}}</div>

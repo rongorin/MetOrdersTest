@@ -6,6 +6,7 @@
     function CustomerController($http)
     { 
         var vm = this;
+        vm.Message = "T  Listing";
 
         vm.customer =
             {
@@ -24,7 +25,7 @@
 		
 
         function editClick(id) {
-            alert("ddd");
+            //alert("ddd");
             customerGet(id);
 
         }

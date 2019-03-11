@@ -26,11 +26,12 @@ namespace MetopeOrdersTest.Controllers
         {
             IHttpActionResult ret = null;
             var results = _repo.Get().ToList();
-
-            //vm.Products.Clear();
+           
+            results.Clear();
             if (results.Count > 0)
             {
-                ret = Ok(results);
+               // ret = Ok(results);
+                return Content(HttpStatusCode.BadRequest, "Any object");
             }
             else
             {

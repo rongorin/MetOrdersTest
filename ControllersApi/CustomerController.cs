@@ -21,15 +21,16 @@ namespace MetopeOrdersTest.ControllersApi
         }
 
         //[Route("api/Customer")] 
+        [Route]
         public IHttpActionResult Get()
         {
             IHttpActionResult ret = null;
-            var results = _repo.Get().ToList();
+            var results = _repo.Get().ToList(); 
              
-            //vm.Products.Clear();
             if (results.Count > 0)
             {
                ret = Ok(results);
+               //return Content(System.Net.HttpStatusCode.BadRequest, "Any object");
             }
             else
             {
@@ -39,13 +40,12 @@ namespace MetopeOrdersTest.ControllersApi
                 //    OtherDetails = "foo bar baz"
                 //}; 
                 //ret = Content(System.Net.HttpStatusCode.NotFound, myError); ;
-                ret = NotFound()  ; 
-                 
+                ret = NotFound()  ;  
             }
 
             return ret;
         }
-  
+          [System.Web.Http.HttpGet]  
         public IHttpActionResult Get(int id)
         {
             IHttpActionResult ret = null;
@@ -64,5 +64,90 @@ namespace MetopeOrdersTest.ControllersApi
 
             return ret;
         }
+         [System.Web.Http.HttpPost]   
+        public IHttpActionResult Post([FromBody]Customer customer) 
+        {
+            IHttpActionResult ret = null;
+
+            var resbool = _repo.Add(customer);
+             
+            if (resbool)
+            {
+                _repo.Save();
+                ret = Created<Customer>(
+                        Request.RequestUri +
+                        customer.CustomerId.ToString(),
+                          customer);
+            }
+            else
+            {
+                ret = NotFound();
+            }
+
+            return ret;
+        }
+        [System.Web.Http.HttpPut]  
+        public IHttpActionResult Put([FromBody]Customer customer)
+        {
+            IHttpActionResult ret = null;
+
+            try
+            {
+                bool resbool = _repo.Update(customer);
+
+                if (resbool)
+                {
+                    ret = Ok();
+
+                }
+                else
+                {
+                    ret = NotFound();
+                }
+
+            }
+
+            catch (Exception e)
+            {
+
+                ret = NotFound();
+            }
+
+            return ret;
+        } 
+       [Route("delete/{id:int}")]
+        public IHttpActionResult Delete(int id)
+        {
+            IHttpActionResult ret = null;
+
+            if (id == null)
+                return BadRequest();
+
+            bool resbool = _repo.Delete(id);
+  
+            if (resbool)
+            {
+                ret = Ok();
+
+            }
+            else
+            {
+                ret = NotFound();
+            }
+
+            return ret;
+        }
+        //public  HttpResponseMessage Post([FromBody]Customer customer)
+        //{
+        //    IHttpActionResult ret = null;
+
+        //   var response = new HttpResponseMessage();
+        //   response.StatusCode = System.Net.HttpStatusCode.BadRequest;
+
+        //   response.Content = new StringContent("12345");
+
+        //   return response;
+
+        //}
     }
 }

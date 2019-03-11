@@ -1,17 +1,16 @@
 ﻿@model IEnumerable<OrdersModel.DomainClasses.Customer>
 
 @{
-    ViewBag.Title = "Index2";
+    ViewBag.Title = "IndexAngularHome";
 } 
-<a href="#/Customer">customer</a> 
-<h2>Index2</h2>
+<h2>Home for AngularJS</h2>
+@*<a href="#/CustListing" class="btn">Customer Listing</a>*@
  
- <div ng-view=""></div>
- 
-
+ <div data-ng-view=""></div>
     @section Scripts { 
         <script src="~/Scripts/angular.min.js"></script> 
         <script src="~/Scripts/angular-route.min.js"></script>       
+        <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
         <script src="~/app/app.js"></script> 
         <script src="~/services/ProjectServices.js"></script>
         <script src="~/app/employee.controller.js"></script>

@@ -27,7 +27,7 @@
 
         <tr ng-repeat="customer in vm.customers">
             <td class="pdsa-action-button-column">
-                <a data-ng-href="/Customer/Edit/{{customer.CustomerId}}"
+                <a data-ng-href="#/Customer/Edit/{{customer.CustomerId}}"
                    ng-click="vm.editClick(customer.CustomerId)"
                    class="btn btn-default btn-sm">
                     <i class="glyphicon glyphicon-edit"></i>
@@ -52,9 +52,9 @@
 
     <script src="~/Scripts/angular.min.js"></script>
 <script src="~/Scripts/angular-route.js"></script>
-    <script src="~/app/app.js"></script>
+    <script src="~/app/app.module.js"></script>
      
-    <script src="~/app/customer2.controller.js"></script>
+    <script src="~/app/customer.controller.js"></script>
 
 }
      
